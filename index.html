@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/iconfont.css">
+	<link rel="stylesheet" href="./css/public.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/liMarquee.css">
+	<link rel="stylesheet" type="text/css" href="./css/simple-calendar.css">
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./laydate/laydate.js"></script>
+	<script src="./js/jquery.liMarquee.js"></script>
+	<script type="text/javascript" src="./js/simple-calendar.js"></script>
+	<script>
+    	document.documentElement.style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+	</script>
+	<style>
+		.sc-return-today{
+			cursor: pointer;
+		    border-radius: 3px 0 0 3px;
+		    box-shadow: inset 0 1px rgba(255,255,255,0.2);
+		    display: block;
+		    border-radius: 2px;
+		    width: 60px;
+		    font-size: 0.8em;
+		    padding: 0.3em;
+		    margin: auto;
+		    color: #fff;
+		    background: rgba(255,255,255,0.3);
+		}
+		.sc-calendar{
+			width: 100%;
+			border:0;
+		}
+		.sc-header select{
+			color: #fff;
+			background: transparent;
+		}
+		.sc-time{
+			color: #fff;
+		}
+		.sc-actions div{
+			color: #fff;
+			cursor: pointer;
+			border-radius: 3px 0 0 3px;
+			background: rgba(255,255,255,0.3);
+			box-shadow: inset 0 1px rgba(255,255,255,0.2);
+		}
+		.sc-actions .sc-yright{
+			border-radius:0 3px 3px 0;
+
+		}
+		.sc-actions .sc-mright{
+			border-radius:0 3px 3px 0;
+		}
+		.sc-select-year option,.sc-select-month option{
+			color: #666 !important;
+		}
+		.sc-body{
+			height: 90%;
+		}
+		.sc-week{
+			color: #fff;
+			background: rgba(255,255,255,0.2);
+		    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+		    border-radius: 20px 20px 0 0;
+		    height: 10%
+
+		}
+		.sc-week-item{
+			background: transparent;
+			border:0;
+			padding-top: 1%;
+		}
+		.sc-item{
+			cursor: pointer;
+		}
+		.sc-days{
+			height: 88%;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<header class="out clearfix">
+			<div class="fl header-left ">
+				<a href="javascript:;" class="logo col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<img src="./img/logo_menu.png" alt="" class="img-responsive">
+				</a>
+				<!-- <a href="javascript:;" class="menu_btn iconfont icon-liucheng" id="menu_btn"></a> -->
+			</div>
+			<div class="tool fl">
+				<div class="fl slogan str1 str_wrap" id="slogan">
+					天助自助者，你要你就能。
+				</div>
+				<a href="javascript:;" class="signout"><i class="iconfont icon-signout"></i>注销</a>
+				<a href="javascript:;" class="signout"><i class="iconfont icon-buchongiconsvg06"></i>修改密码</a>
+				<a href="javascript:;" class="signout"><i class="iconfont icon-geren1"></i>个人中心</a>
+			</div>
+		</header>
+		<main class="out clearfix">
+			<aside class="fl">
+				<div class="person clearfix">
+					<a href="javascript:;" class="pic fl">
+						<img src="./img/tx.png" alt="" class="img-circle">
+					</a>
+					<span class="person_right fl">
+						<p class="person_name">某某某</p>
+						<p class="person_tool">
+							<a href="javascript:;" class="iconfont icon-geren1" title="个人中心"></a>
+							<a href="javascript:;" class="iconfont icon-buchongiconsvg06" title="修改密码"></a>
+							<a href="javascript:;" class="iconfont icon-signout" title="注销"></a>
+						</p>
+					</span>
+				</div>
+				<div class="nav clearfix" id="nav">
+					<p class="translate" id="translate">
+						<img src="./img/htj.png" alt="">
+					</p>
+					<!-- 所有菜单 -->
+					<div class="all_menu active" id="all_menu">
+						<a href="javascript:;" ><i class="iconfont icon-zhuye"></i><span>首页</span></a>
+						<a href="javascript:;" class="" index='0' ><i class="iconfont icon-xietongguanli"></i><span>协同管理</span></a>
+						<a href="javascript:;" class="" index='1' ><i class="iconfont icon-xingzhengshenpi"></i><span>行政管理</span></a>
+						<a href="javascript:;" class="" index='2' ><i class="iconfont icon-Scheduling_01"></i><span>排班管理</span></a>
+						<a href="javascript:;" class="" index='3' ><i class="iconfont icon-xitongguanli"></i><span>系统管理</span></a>
+						<a href="javascript:;" class="" index='4' ><i class="iconfont icon-cultivate"></i><span>培训中心管理</span></a>
+						<a href="javascript:;" class="" index='5' ><i class="iconfont icon-renliziyuan"></i><span>人力资源</span></a>
+						
+					</div>
+					<!-- 协同管理 -->
+					<div class=" " index='0' >
+						<a href="javascript:;" class=""><i class="iconfont icon-xietongguanli"></i><span>协同管理</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-faqi"></i><span>发起事项</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-daiban"></i><span>待办事项</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-yiban1"></i><span>已办事项</span></a>
+						<a href="javascript:;" class="return">
+							<i class="iconfont icon-fanhui1 "></i><span>返回上一级</span>
+						</a>
+					</div>
+					<!-- 行政 -->
+					<div class=" " index='1' >
+						<a href="javascript:;" class=""><i class="iconfont icon-xingzhengshenpi"></i><span>行政管理</span></a>
+						<a href="javascript:;" class="submenu" index='1-0'><i class="iconfont icon-qingjia"></i><span>请假申请</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-waiqin"></i><span>外勤申请</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-chucha"></i><span>出差申请</span></a>
+						<a href="javascript:;" class="submenu"><i class="iconfont icon-jiaban"></i><span>加班申请</span></a>
+						<a href="javascript:;" class="return">
+							<i class="iconfont icon-fanhui1 "></i><span>返回上一级</span>
+						</a>
+					</div>
+				</div>
+			</aside>
+			<section class="fl" id="tab">
+				<!-- table按钮 -->
+				<p class="tablemenu clearfix" id="tablemenu">
+					<a href="javascript:;" class="clearfix">
+						<i class="iconfont icon-zhuye" style="font-size: 0.18rem;"></i>
+						<span>首页</span>
+					</a>
+				</p>
+				<!-- 主页 -->
+				<div id="index" class="show index" >
+					<div class="infoBox clearfix">
+						<div style="width:18%;text-align: center;overflow: hidden;" class="wow animated flipInY">
+							<p style="font-size: 0.2rem;">考勤异常天数</p>
+							<span style="font-size: 0.5rem;color: #F9646B;">22</span>
+						</div>
+						<div style="width:18%;background: url(./img/ltby.png) no-repeat;background-size:cover;color: #fff;text-align:right;" class="wow animated flipInY">
+							<p>
+								<span id="year" style="font-size: 0.4rem;">1</span>
+								<i style="font-size: 0.2rem;">年</i>
+								<span id="days" style="font-size: 0.4rem;">291</span>
+								<i style="font-size: 0.2rem;">天</i>
+							</p>
+							<span>加入公司天数</span>
+						</div>
+						<div style="width:18%;background: url(./img/tdrs.png) no-repeat;background-size:cover;color: #fff;text-align:center;" class="wow animated flipInY">
+							<p style="font-size: 0.5rem;">
+								20
+							</p>
+							<span>团队人数</span>
+						</div>
+						<div style="width:30%;padding:0.2rem 0.3rem;color: #fff;" class="sunny wow animated flipInY">
+							<p style="font-size: 0.12rem;">
+								<span class="where" >广州</span>
+								<span class="pushTime">2018-1-1 10:25:14发布</span>
+								
+							</p>
+							<p style="text-align: center;margin:0.15rem 0;line-height: 0.5rem;">
+								<i class="stateIcon"><img src="./img/7.png" alt="" ></i>
+								<span class="du">17<i>&#8451;</i></span>
+							</p>
+							<p style="text-align: right;font-size: 0.12rem;font-weight: 600;">
+								<span class="state">多云</span>
+								<span class="wind">西北分 13级</span>
+							</p>
+						</div>
+					</div>
+					<!-- 常用 -->
+					<div class="common out clearfix">
+						<div class="wow animated rubberBand" >
+							<i class="iconfont icon-xietongguanli"></i>
+							<span>协同管理</span>
+						</div>
+						<div class="wow animated bounceInRight" data-wow-delay="0.4s">
+							<i class="iconfont icon-xingzhengshenpi"></i>
+							<span>行政管理</span>
+						</div>
+						<div class="wow animated bounceInRight" data-wow-delay="0.6s">
+							<i class="iconfont icon-renliziyuan"></i>
+							<span>人力资源</span>
+						</div>
+						<div class="wow animated bounceInRight" data-wow-delay="0.8s">
+							<i class="iconfont icon-xitongguanli"></i>
+							<span>系统管理</span>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="quick">
+							<p><i class="iconfont icon-kuaijiebiaoqian"></i>快捷入口</p>
+							<div class="quick_list clearfix listHeight wow animated" id="quick_list">
+								<a href="javascript:;" index='1-0'>
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<i id="addInto" class="addInto">
+									<i class="iconfont icon-tianjia"></i>
+									<p>添加</p>
+								</i>
+							</div>
+							<div class="addDiv wow animated" data-wow-duration="1s" id="addDiv">
+								<div class="iconList" id="iconList">
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="0.5s" index="1-3">
+										
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="0.6s" index="1-3">
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="0.7s" index="1-3">
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="0.8s" index="1-3">
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="0.9s" index="1-3">
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+									<a href="javascript:;" class="wow animated wowIteam" data-wow-delay="1s" index="1-3">
+										
+										<i class="iconfont icon-jiaban"></i>
+										<p>加班申请</p>
+									</a>
+								</div>
+								<p class="addbtn">
+									<a href="javascript:;" class="btn" id="addbtn">确定</a>
+								</p>
+							</div>
+						</div>
+						<div class="lately">
+							<p><i class="iconfont icon-zuijinlaifang" style="font-size: 0.2rem;"></i>最近使用</p>
+							<div class="lately_list clearfix listHeight" id="lately_list">
+								<a href="javascript:;" index='1-0'>
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+								<a href="javascript:;">
+									<i class="iconfont icon-qingjia"></i>
+									<p>请假申请</p>
+								</a>
+							</div>
+						</div>
+						<div class="notice">
+							<p><i class="iconfont icon-gonggao"></i>公告</p>
+							<div class="listHeight">
+								
+							</div>
+						</div>
+						
+					</div>
+					<div class="section clearfix">
+						<div class="wait">
+							<p><i class="iconfont icon-daiban" style="font-size: 0.18rem;"></i>待办事项</p>
+							<div class="listHeight">
+								
+							</div>
+						</div>
+						<div class="storage">
+							<p><i class="iconfont icon-daixinnianjiaqi" style="font-size: 0.2rem;"></i>假期余额</p>
+							<div class="listHeight ">
+								<table class="vocation table">
+									<thead>
+										<tr>
+											<th colspan="1">类型</th>
+											<th colspan="1">上年结余</th>
+											<th colspan="1">本年享用</th>
+											<th colspan="1">已用额度</th>
+											<th colspan="1">余额</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="1">福利假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">婚假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">年假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">年假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">年假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">年假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+										<tr>
+											<td colspan="1">年假</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+											<td colspan="1">0h</td>
+											<td colspan="1">1.5h</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="section clearfix">
+						<div class="calendy">
+							<p class="" style=""> <i class="iconfont icon-rili" style=""></i>工作日历</p>
+							<div class="listHeight" id="calendyId">
+
+							</div>
+						</div>
+						<div class="diligence">
+							<p class="" style=""><i class="iconfont icon-paiming"></i>勤奋榜</p>
+							<div class="listHeight">
+								<p class="bdtype">
+									<span class="clearfix">
+										<span style="border-radius: 5px 0 0 5px;border-right: 0;" class="typeActive">本周榜单</span>
+										<span style="border-radius:0 5px 5px 0;border-left: 0">本月榜单</span>
+									</span>
+								</p>
+								<div class="bdlist out">
+									<p class="clearfix">
+										<i class="num">
+											<img src="./img/first.png" alt="">
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+										<span class="topRight"></span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											<img src="./img/second.png" alt="">
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											<img src="./img/three.png" alt="">
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											4
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											5
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											6
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											7
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											8
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											9
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>
+									<p class="clearfix">
+										<i class="num">
+											10
+										</i>
+										<i class="photo">
+											<img src="./img/photo.png" alt="">
+										</i>
+										<span class="name">周乙涛</span>
+										<span class="hours">日均<i>2h</i>
+										</span>
+									</p>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 请假 -->
+				<div index='1-0' class="" style="background: #fff;padding:0 0.2rem;">
+					<p class="search">
+						<span>日期范围</span>
+						<input type="text" id="begin" name="begin" value="" />
+						<i class="iconfont icon-sousuo"></i>
+					</p>
+<!-- 					<div class="looktable clearfix">
+						<a href="" class="lookactive">有薪事假</a>
+						<a href="">无薪事假</a>
+						<a href="">加班补休</a>
+					</div> -->
+					<div>
+						<p class="tabtool">
+							<a href="javascript:;" class="iconfont icon-delete delete" id="delete">批量删除</a>
+							<a href="javascript:;" class="iconfont icon-tianjia1 add" id="add">添加</a>
+							<span class="fr">
+								共有数据：<i>1</i>条
+							</span>
+						</p>
+						<table style="table-layout: fixed;margin-bottom: 0;margin-top: 0.1rem;" class="table table-bordered">
+							<thead>
+								<tr style="background: #F2F2F2;">
+									<th colspan="1"><input type="checkbox" name="delete" value="0"></th>
+									<th colspan="3">标题</th>
+									<th colspan="3">请假时间</th>
+									<th colspan="2">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr >
+									<td colspan="1"><input type="checkbox" name="delete" value="1"></td>
+									<td colspan="3">周乙涛于2018-01-08申请请假</td>
+									<td colspan="3">
+										2018-01-08 08:30 ~ 2018-01-08 12:00
+									</td>
+									<td colspan="2" class="caozuo">
+										<a href="" class="iconfont icon-fuwurizhi"  style="background: #6FBE84;"><span>流程日志</span></a>
+										<a href="" class="iconfont icon-bianji"  style="background: #36A9FF;"><span>编辑</span></a>
+										<a href="" class="iconfont icon-delete"  style="background: #FF5722;"><span>删除</span></a>
+									</td>
+								</tr>
+								<tr >
+									<td colspan="1"><input type="checkbox" name="delete" value="1"></td>
+									<td colspan="3">周乙涛于2018-01-08申请请假</td>
+									<td colspan="3">
+										2018-01-08 08:30 ~ 2018-01-08 12:00
+									</td>
+									<td colspan="2" class="caozuo">
+										<a href="" class="iconfont icon-fuwurizhi"  style="background: #6FBE84;"><span>流程日志</span></a>
+										<a href="" class="iconfont icon-bianji"  style="background: #36A9FF;"><span>编辑</span></a>
+										<a href="" class="iconfont icon-delete"  style="background: #FF5722;"><span>删除</span></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p class="page clearfix">
+							<a href="javascript:;" class="pageactive">1</a>
+							<a href="javascript:;">2</a>
+							<a href="javascript:;">3</a>
+							<a href="javascript:;">4</a>
+							<a href="javascript:;">5</a>
+							<span >······</span>
+							<a href="javascript:;">100</a>
+							<a href="javascript:;">&gt;</a>
+						</p>
+					</div>
+				</div>
+				<!-- 请假结束 -->
+				<!-- 各种弹窗 -->
+				<div class="alertWray" id="alertWray">
+					<!-- 请假弹窗 -->
+					<div class="alert" alertIdnex='1-0'>
+						<p class="alertTitle clearfix">
+							<span class="fl">请假申请</span>
+							<i class="iconfont icon-guanbi fr" id="alertbtn"></i>
+						</p>
+						<div class="alertInner">
+							<p class="clearfix">
+								<span>申请人：</span>
+								<i>
+									<input type="text" class="form-control">
+								</i>
+							</p>
+							<p class="clearfix">
+								<span>申请时间：</span>
+								<i>
+									<input type="text" class="form-control" id="sqsj">
+								</i>
+							</p>
+							<p class="clearfix">
+								<span>请假类型：</span>
+								<i>
+									<select name="leaveType" id="leaveType" class="form-control">
+										<option value="0">有薪事假</option>
+										<option value="1">无薪事假</option>
+										<option value="1">加班补休</option>
+									</select>
+								</i>
+							</p>
+							<p class="clearfix">
+								<span>请假原因：</span>
+								<i>
+									<textarea class="form-control" rows="3"></textarea>
+								</i>
+							</p>
+							<p class="clearfix">
+								<span>上级审批：</span>
+								<i>
+									<select name="manType" id="manType" class="form-control">
+										<option value="0">大佬一</option>
+										<option value="1">大佬二</option>
+									</select>
+								</i>
+							</p>
+							<p style="text-align: center;">
+								<input type="submit" value="提交" class="btn btn-default">
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- 各种弹窗结束 -->
+			</section>
+
+		</main>
+	</div>
+</body>
+<script>
+	
+$(function(){
+	new WOW().init();
+	laydate.render({
+	    elem: '#begin',
+	    range: true
+	});
+	laydate.render({
+	    elem: '#sqsj',
+	    range: true
+	});
+	$('.str1').liMarquee();
+	var myCalendar = new SimpleCalendar('#calendyId');
+	console.log(myCalendar);
+})
+</script>
+
+</html>
