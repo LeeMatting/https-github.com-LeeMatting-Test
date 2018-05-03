@@ -1,0 +1,17 @@
+#canvas{
+	width: 600px;
+	padding:200px;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+span{
+	background-color: red;
+	padding:10px 10px;
+}
+.changeColor span{
+	background-color: blue;
+}
+.changeLenght span{
+	content: '泥猴啊';
+	padding-right: 20px;
+}
