@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="layui/layui.js"></script>
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+    </script>
+    <style media="screen">
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      #fenye1{
+        float:right;
+      }
+    </style>
+  </head>
+  <body style='margin:16px 10px;'>
+
+    <!--新建比赛//-->
+    <button class='layui-btn' id='open'>
+        <i class='layui-icon '>&#xe654;</i>
+        新建比赛
+    </button>
+
+    <div class="Match">
+      <table class='layui-table' lay-even>
+        <thead>
+          <tr>
+            <td>比赛人数</td>
+            <td>比赛类型</td>
+            <td>比赛项目</td>
+            <td>比赛场地</td>
+            <td>报名时间</td>
+            <td>截止报名时间</td>
+            <td>初赛时间</td>
+            <td>半决赛时间</td>
+            <td>决赛时间</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>团体</td>
+            <td>音乐</td>
+            <td>流行歌手大赛</td>
+            <td>XX体育馆</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>
+              <a href="javascript:;" title='编辑'>
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe642;</i>
+              </a>
+              <a href="javascript:;">
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe640;</i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>团体</td>
+            <td>音乐</td>
+            <td>流行歌手大赛</td>
+            <td>XX体育馆</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>
+              <a href="javascript:;" title='编辑'>
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe642;</i>
+              </a>
+              <a href="javascript:;">
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe640;</i>
+              </a>
+            </td>
+        </tr>
+          <tr>
+            <td>团体</td>
+            <td>音乐</td>
+            <td>流行歌手大赛</td>
+            <td>XX体育馆</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>2018-11-11</td>
+            <td>
+              <a href="javascript:;" title='编辑'>
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe642;</i>
+              </a>
+              <a href="javascript:;">
+                <i class='layui-icon' style='font-size:0.2rem;font-weight:bold;'>&#xe640;</i>
+              </a>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--分页工具//-->
+    <div id='fenye1'></div>
+  </body>
+  <script>
+    $(function(){
+      $('#open').click(function(){
+        layui.use('layer', function(){
+          var layer = layui.layer;
+
+          layer.open({
+            type:2,
+            title:'新建比赛',
+            content: ['newMatch.html'],
+            area:['50%','47em'],
+            offset: '50px'
+          })
+        });
+      });
+
+      $('a[title="编辑"]').click(function(){
+        layui.use('layer', function(){
+          var layer = layui.layer;
+
+          layer.open({
+            type:2,
+            title:'编辑比赛',
+            content: ['newMatch.html'],
+            area:['50%','5.8rem'],
+            offset: '50px'
+          })
+        });
+      })
+      //实例化一个分页工具
+      layui.use('laypage', function(){
+        var laypage = layui.laypage;
+        //执行一个laypage实例
+        laypage.render({
+          elem: 'fenye1' //注意，这里的 test1 是 ID，不用加 # 号
+          ,count: 50 //数据总数，从服务端得到
+        });
+      });
+    })
+  </script>
+</html>

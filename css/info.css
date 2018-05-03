@@ -1,0 +1,32 @@
+.site-title {
+    margin: 30px 0 20px;
+    margin-left:10px;
+}
+.site-title fieldset {
+    border: none;
+    padding: 0;
+    border-top: 1px solid #eee;
+}
+.site-title fieldset legend {
+    margin-left: 20px;
+    padding: 0 10px;
+    font-size: 22px;
+    font-weight: 300;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+.moreinfo{
+  width:99%;
+  margin-left: 13px;
+}
+#fenye{
+  margin-left: 13px;
+}
+.red{
+  color:#ff0000;
+}
+.green{
+  color:#00ea55;
+}

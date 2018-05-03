@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0099)file:///C:/Users/Administrator/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/childinfo.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+    <link rel="stylesheet" href="./childinfo_files/layui.css.下载">
+    <script src="./childinfo_files/jquery.js.下载"></script>
+    <script src="./childinfo_files/layui.js.下载"></script>
+    <style media="screen">
+      .photo img{
+        width:5%;
+        height:5%;
+        border:1px solid #ccc;
+        border-radius: 2px;
+      }
+      .btn-group{
+        margin:0 auto;
+      }
+    </style>
+    <script>
+      $(function(){
+        $('.layui-form').find('input').attr('disabled','disabled');
+      })
+    </script>
+  <link id="layuicss-layer" rel="stylesheet" href="./childinfo_files/layer.css.下载" media="all"></head>
+  <body>
+
+  <form class="layui-form" action="file:///C:/Users/Administrator/Desktop/%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/index.html" method="post" style="width:97%;margin-top:20px;">
+      <div class="layui-form-item">
+          <label class="layui-form-label">姓名</label>
+          <div class="layui-input-block">
+            <input class="layui-input" type="text" value="刘德华" disabled="disabled">
+          </div>
+      </div>
+
+      <div class="layui-form-item">
+          <label class="layui-form-label">性别</label>
+          <div class="layui-input-block">
+            <input class="layui-input" type="radio" value="1" title="男" checked="checked" disabled="disabled"><div class="layui-unselect layui-form-radio layui-form-radioed layui-radio-disbaled layui-disabled"><i class="layui-anim layui-icon"></i><div>男</div></div>
+            <input class="layui-input" type="radio" value="2" title="女" disabled="disabled"><div class="layui-unselect layui-form-radio layui-radio-disbaled layui-disabled"><i class="layui-anim layui-icon"></i><div>女</div></div>
+          </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">身份证号码</label>
+        <div class="layui-input-block">
+          <input class="layui-input" type="text" name="" value="440182201302027894" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">比赛团体</label>
+        <input class="layui-input" type="radio" name="" value="1" title="团体" disabled="disabled"><div class="layui-unselect layui-form-radio layui-radio-disbaled layui-disabled"><i class="layui-anim layui-icon"></i><div>团体</div></div>
+        <input class="layui-input" type="radio" name="" value="1" title="个人" checked="checked" disabled="disabled"><div class="layui-unselect layui-form-radio layui-form-radioed layui-radio-disbaled layui-disabled"><i class="layui-anim layui-icon"></i><div>个人</div></div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">比赛类别</label>
+        <div class="layui-input-block">
+          <input type="text" name="" value="音乐" class="layui-input" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">比赛项目</label>
+        <div class="layui-input-block">
+          <input class="layui-input" type="text" name="" value="流行歌唱比赛" disabled="disabled">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label">个人近照</label>
+        <div class="layui-input-block">
+          <div class="photo">
+              <img src="./childinfo_files/liu.jpg.下载" alt="">
+          </div>
+        </div>
+      </div>
+  </form>
+
+  <!--按钮组//-->
+  <center class="layui-btn-container">
+    <button type="button" class="layui-btn layui-btn-radius layui-btn-primary" name="button">修改信息</button>
+    <button type="button" class="layui-btn layui-btn-radius" name="button">通过审核</button>
+  </center>
+
+
+  <script type="text/javascript">
+  layui.use('form', function(){
+  var form = layui.form;
+
+  		//监听提交
+  		form.on('submit(formDemo)', function(data){
+  				layer.msg(JSON.stringify(data.field));
+  				return false;
+  		});
+  });
+  </script>
+
+</body></html>

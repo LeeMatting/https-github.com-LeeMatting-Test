@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="layui/layui.js"></script>
+    <style media="screen">
+      .photo img{
+        width:10%;
+        height:10%;
+        border:1px solid #ccc;
+        border-radius: 2px;
+      }
+      .btn-group{
+        margin:0 auto;
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+
+  <form class="layui-form" action="index.html" method="post" style="width:97%;margin-top:20px;">
+      <div class="layui-form-item">
+          <label class='layui-form-label'>姓名</label>
+          <div class="layui-input-block">
+            <input class='layui-input' type='text' value='刘德华' disabled='disabled'>
+          </div>
+      </div>
+
+      <div class="layui-form-item">
+          <label class='layui-form-label'>性别</label>
+          <div class="layui-input-block">
+            <input class='layui-input' name='sex' type='radio' value='1' title='男' checked='checked' >
+            <input class='layui-input' name='sex' type='radio' value='2' title='女'>
+          </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>身份证号码</label>
+        <div class="layui-input-block">
+          <input class='layui-input' type="text" name="" value="440182201302027894">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛团体</label>
+        <input class='layui-input' name='group' type="radio" name="" value="1" title='团体'>
+        <input class='layui-input' name='group' type="radio" name="" value="1" title='个人' checked='checked' >
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛类别</label>
+        <div class="layui-input-block">
+          <input type="text" name="" value="音乐" class='layui-input'>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛项目</label>
+        <div class="layui-input-block">
+          <input class='layui-input' type="text" name="" value="流行歌唱比赛">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>个人近照</label>
+        <div class="layui-input-block">
+          <div class="photo">
+              <img src="img/liu.jpg" alt="">
+          </div>
+        </div>
+      </div>
+  </form>
+
+  <!--按钮组//-->
+  <center class='layui-btn-container'>
+    <button id='change' type="button" class='layui-btn layui-btn-danger' name="button">不通过审核</button>
+    <button id='pass' type="button" class='layui-btn' name="button">通过审核</button>
+  </center>
+
+</body>
+  <script type="text/javascript">
+  layui.use('form', function(){
+  var form = layui.form;
+
+  		//监听提交
+  		form.on('submit(formDemo)', function(data){
+  				layer.msg(JSON.stringify(data.field));
+  				return false;
+  		});
+  });
+
+    //点击查看图片
+    layui.use('layer',function(){
+      var layer = layui.layer;
+
+      $('.photo').click(function(){
+        let a = $(this).find('img').attr('src');
+        layer.open({
+          type : 0,
+          title:'查看大图',
+          content : '<img src="'+a+'" style="width:60%;height:60%">'
+        });
+      });
+    });
+  </script>
+</html>

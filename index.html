@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>报名系统</title>
+  <link rel="stylesheet" href="css/xadmin.css">
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      *{
+        font-family: "微软雅黑";
+      }
+    </style>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div style='position:relative;left:11px;top:14px;'><img style='width:30px;height:30px;' src='img/logo(1).png' alt='找不到图片'></div>
+    <div class="layui-logo" style='color:#acacad'>比赛管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right" lay-filter="base">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="img/photo.png" class="layui-nav-img">
+          欢迎！XX用户
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a name='person.html' id='basethings' href="javascript:;">基本资料</a></dd>
+          <dd><a name='changePassword.html' id='safty' href="javascript:;">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退出登录</a></li>
+    </ul>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="qwe">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">信息中心</a>
+          <dl id='infocenter' class="layui-nav-child">
+            <dd name='info.html' class='layui-this' id='111'><a href="javascript:;">选手信息</a></dd>
+            <dd name='MatchInfo.html' id='1'><a href="javascript:;">比赛名单</a></dd>
+            <dd name='MatchManage.html' id='2'><a href="javascript:;">场次管理</a></dd>
+            <dd name='addMenber.html' id='3'><a href="javascript:;">海选名单确定</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="layui-body page-content">
+    <div class="layui-tab tab layui-tab-brief" lay-allowclose="true" lay-filter="test1">
+    <ul id='tab1' class="layui-tab-title">
+      <li class="layui-this" lay-id="111">选手信息</li>
+    </ul>
+    <div class="layui-tab-content">
+      <div class="layui-tab-item layui-show">
+          <iframe src='info.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+    <!-- 内容主体区域 -->
+  </div>
+
+  <div class="layui-footer">
+    底部固定区域
+  </div>
+</div>
+<script src="layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+
+  //点击树的二级菜单
+  element.on('nav(qwe)', function(elem){
+    var flag = 1;
+    var oTitle = $(this).find('a').html();
+    var layid = $(this).attr('id');
+    var oUrl = $(this).attr('name');
+    //判断是否存在tab
+    var tLayname = $('#tab1').find('li');
+    for(let i = 0 ;i<=tLayname.length;i++){
+      let oId = $(tLayname[i]).attr('lay-id');
+      //如果存在
+      if(layid==oId){
+        element.tabChange('test1', layid);
+        flag = 2;
+      }
+    };
+    //如果不存在，新建
+    if(flag=='1'){
+      element.tabAdd('test1', {
+        title: oTitle
+        ,content:"<iframe id='frame"+layid+"' src='"+oUrl+"'  frameborder='0' scrolling='yes' class='x-iframe'>" //支持传入html
+        ,id: layid
+      });
+      element.tabChange('test1', layid);
+      flag = 1;
+    }
+  });
+
+  //点击声称tab
+
+  element.on('nav(base)', function(elem){
+      var bbb = 1;
+    let oTitle = $(this).find('a').html();
+    let layid = $(this).find('a').attr('id');
+    let oUrl = $(this).find('a').attr('name');
+    //判断是否存在tab
+    let tLayname = $('#tab1').find('li');
+    for(let i = 0 ;i<=tLayname.length;i++){
+      let oId = $(tLayname[i]).attr('lay-id');
+      //如果存在
+      if(layid==oId){
+        element.tabChange('test1', layid);
+        bbb = 2;
+      }
+    };
+    //如果不存在，新建
+    if(bbb=='1'){
+      element.tabAdd('test1', {
+        title: oTitle
+        ,content:"<iframe id='frame"+layid+"' src='"+oUrl+"' frameborder='0' scrolling='yes' class='x-iframe'>" //支持传入html
+        ,id: layid
+      });
+      element.tabChange('test1', layid);
+      bbb = 1;
+    }
+  });
+
+  //监听到tab被删除
+  element.on('tabDelete(test1)', function(){
+      flag = 1;
+      bbb = 1;
+  });
+
+  //坚挺tab切换
+  element.on('tab(test1)', function(data){
+    let keyId = $(this).attr('lay-id');
+    $('#infocenter').find('dd').removeClass('layui-this');
+    $('#infocenter').find('dd[id="'+keyId+'"]').addClass('layui-this');
+  });
+});
+
+
+</script>
+</body>
+</html>

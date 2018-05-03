@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="css/info.css">
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/flot/0.8.3/excanvas.js"></script>
+		<script src='js/jquery.qrcode.min.js'></script>
+		<style media="screen">
+			#timeline{
+				margin-top:20px;
+				margin-left:20px;
+			}
+		</style>
+	</head>
+	<body>
+
+			<!--//-->
+			<!--比赛时间线//-->
+			<div id='timeline'>
+				<ul class='layui-timeline'>
+					<li class='layui-timeline-item'>
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title'>1月29号</h3>
+							<p>XX大赛报名开始</p>
+						</div>
+					</li>
+					<li class='layui-timeline-item'>
+						<i class='layui-icon layui-timeline-axis'>&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title'>2月1号</h3>
+							<p>XX报名截至</p>
+						</div>
+					</li>
+					<li class='layui-timeline-item'>
+						<i class='layui-icon layui-timeline-axis'>&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title' id='cs'>2月4号</h3>
+							<p id='tyg'>XX体育馆</p>
+						</div>
+					</li>
+					<li class='layui-timeline-item'>
+						<i class='layui-icon layui-timeline-axis'>&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title'>2月4号</h3>
+							<p>到XX体育馆进行初赛</p>
+						</div>
+					</li>
+					<li class='layui-timeline-item'>
+						<i class='layui-icon layui-timeline-axis'>&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title'>2月7日</h3>
+							<p>半决赛</p>
+						</div>
+					</li>
+					<li class='layui-timeline-item'>
+						<i class='layui-icon layui-timeline-axis'>&#xe63f;</i>
+						<div class="layui-timeline-content layui-text">
+							<h3 class='layui-timeline-title'>2月15日</h3>
+							<p>决赛</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div id="showQR">
+			</div>
+			<button type="button" class='layui-btn' id='btn' name="button">生成二维码</button>
+	</body>
+	<!--
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				let a = $('#cs').html();
+				let b = $('#tyg').html();
+				let str1 = toUtf8(a);
+				let str2 = toUtf8(b);
+				let str3 = toUtf8('       ')
+				$('#showQR').qrcode({
+					render: 'canvas',
+          text: 'http://www.baidu.com',
+          height: 200,
+          width: 200,
+        });
+				});
+			});
+
+			//转字符
+	function toUtf8(str) {
+    var out, i, len, c;
+    out = "";
+    len = str.length;
+    for(i = 0; i < len; i++) {
+    	c = str.charCodeAt(i);
+    	if ((c >= 0x0001) && (c <= 0x007F)) {
+        	out += str.charAt(i);
+    	} else if (c > 0x07FF) {
+        	out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+        	out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));
+        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+    	} else {
+        	out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));
+        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));
+    		}
+    	}
+    	return out;
+		}
+	</script>
+	//-->
+</html>

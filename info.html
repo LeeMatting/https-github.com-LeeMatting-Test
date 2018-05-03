@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="layui/css/layui.css">
+	<link rel="stylesheet" href="css/info.css">
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script src="layui/layui.js"></script>
+	<script>
+    	document.documentElement.style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+	</script>
+	<style media="screen">
+		#fenye{
+			float:right;
+			margin-right:20px;
+		}
+		.moreinfo{
+			width:98%;
+			display: none;
+			position: relative;
+		}
+		.groupinfo{
+			margin-left:1%;
+			width:98%;
+			position: relative;
+		}
+		/* 半透明的遮罩层 */
+		.mask {
+			display:none;
+			background: #504f4f;
+	    filter: alpha(opacity=50);
+	    opacity: 0.5;
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 100;
+	    /* display: none; */
+		}
+		.center{
+			position: absolute;
+	    left: 43%;
+	    top: 34%;
+
+		}
+	</style>
+</head>
+<body>
+
+
+	<form class="layui-form" action="index.html" method="post" style='width:97%;margin-top:20px;'>
+		<!--栅格系统//-->
+		<div class='layui-row'>
+				<div class="layui-col-md4">
+					<div class="layui-form-item">
+						<label class='layui-form-label'>选手组织</label>
+						<div class="layui-input-block">
+							<select lay-filter='select1' lay-verify="required">
+									<option value='1'>团体</option>
+									<option value='2'>个人</option>
+							</select>
+						</div>
+					</div>
+				</div>
+					<div class="layui-col-md4">
+						<div class="layui-form-item">
+							<label class='layui-form-label'>比赛类型</label>
+							<div class="layui-input-block">
+								<select lay-verify="required">
+										<option value=''>请选择比赛类型</option>
+										<option value='1'>主持</option>
+										<option value='2'>音乐</option>
+										<option value='3'>舞蹈</option>
+										<option value='4'>乐器</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="layui-col-md4">
+						<div class="layui-form-item">
+							<label class='layui-form-label'>比赛项目</label>
+							<div class="layui-input-block">
+								<select lay-verify="required">
+										<option value=''>请选择比赛项目</option>
+										<option value='1'>主持大赛</option>
+										<option value='2'>音乐大赛</option>
+										<option value='2'>舞蹈大赛</option>
+								</select>
+							</div>
+						</div>
+					</div>
+		</div>
+	</form>
+
+		<div class="site-title">
+      <fieldset><legend><a name="default">详细信息</a></legend></fieldset>
+    </div>
+
+		<!--选手个人信息表格//-->
+
+		<div class="moreinfo">
+			<div class="mask">
+				<div class='center'>
+					<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop" style='font-size:40px;color:#fff;margin-left:15px;'>&#xe63d;</i><br/>
+					<span style='color:#fff;font-size:16px;'>数据加载中</span>
+				</div>
+			</div>
+				<table class='layui-table' lay-even>
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>姓别</th>
+							<th>身份证号码</th>
+							<th>年龄</th>
+							<th>组织</th>
+							<th>比赛类型</th>
+							<th>比赛项目</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>刘德华</td>
+							<td>男</td>
+							<td>440121123412341234</td>
+							<td>12</td>
+							<td>个人</td>
+							<td>音乐</td>
+							<td>歌唱比赛</td>
+							<td>
+								<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+								</a>
+								<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+								</a>
+								<a href="javascript:;" title='未审核' style='text-decoration:none'>
+										<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>张学友</td>
+							<td>男</td>
+							<td>440121123412341234</td>
+							<td>12</td>
+							<td>个人</td>
+							<td>音乐</td>
+							<td>歌唱比赛</td>
+							<td>
+								<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+								</a>
+								<a  href="javascript:;" title='删除信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+								</a>
+								<a href="javascript:;" title='已审核' style='text-decoration:none'>
+										<i class='layui-icon green' style='font-size:23px;'>&#xe618;</i>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>陈奕迅</td>
+							<td>男</td>
+							<td>440121123412341234</td>
+							<td>12</td>
+							<td>个人</td>
+							<td>音乐</td>
+							<td>歌唱比赛</td>
+							<td>
+								<a class="ChildInfo" href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+								</a>
+								<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+								</a>
+								<a href="javascript:;" title='未审核' style='text-decoration:none'>
+										<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>周杰伦</td>
+							<td>男</td>
+							<td>440121123412341234</td>
+							<td>12</td>
+							<td>个人</td>
+							<td>音乐</td>
+							<td>歌唱比赛</td>
+							<td>
+								<a class="ChildInfo" href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+								</a>
+								<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+								</a>
+								<a href="javascript:;" title='已审核' style='text-decoration:none'>
+										<i class='layui-icon green' style='font-size:23px;'>&#xe618;</i>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>张国荣</td>
+							<td>男</td>
+							<td>440121123412341234</td>
+							<td>12</td>
+							<td>个人</td>
+							<td>音乐</td>
+							<td>歌唱比赛</td>
+							<td>
+								<a class="ChildInfo" href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+								</a>
+								<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+										<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+								</a>
+								<a href="javascript:;" title='未审核' style='text-decoration:none'>
+										<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+
+		<!--团体选手信息//-->
+		<div class="groupinfo">
+			<div class="mask">
+				<div class='center'>
+					<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop" style='font-size:40px;color:#fff;margin-left:15px;'>&#xe63d;</i><br/>
+					<span style='color:#fff;font-size:16px;'>数据加载中</span>
+				</div>
+			</div>
+			<table class='layui-table' lay-even>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>姓别</th>
+						<th>身份证号码</th>
+						<th>年龄</th>
+						<th>组织</th>
+						<th>领队姓名</th>
+						<th>团队名称</th>
+						<th>比赛类型</th>
+						<th>比赛项目</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>刘德华</td>
+						<td>男</td>
+						<td>440121123412341234</td>
+						<td>12</td>
+						<td>团体</td>
+						<td>李永亮</td>
+						<td>四大天王</td>
+						<td>音乐</td>
+						<td>歌唱比赛</td>
+						<td>
+							<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+							</a>
+							<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+							</a>
+							<a href="javascript:;" title='未审核' style='text-decoration:none'>
+									<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>张学友</td>
+						<td>男</td>
+						<td>440121123412341234</td>
+						<td>12</td>
+						<td>团体</td>
+						<td>李永亮</td>
+						<td>四大天王</td>
+						<td>音乐</td>
+						<td>歌唱比赛</td>
+						<td>
+							<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+							</a>
+							<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+							</a>
+							<a href="javascript:;" title='未审核' style='text-decoration:none'>
+									<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>黎明</td>
+						<td>男</td>
+						<td>440121123412341234</td>
+						<td>12</td>
+						<td>团体</td>
+						<td>李永亮</td>
+						<td>四大天王</td>
+						<td>音乐</td>
+						<td>歌唱比赛</td>
+						<td>
+							<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+							</a>
+							<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+							</a>
+							<a href="javascript:;" title='未审核' style='text-decoration:none'>
+									<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+							</a>
+						</td>
+					</tr>
+					<tr>
+						<td>郭富城</td>
+						<td>男</td>
+						<td>440121123412341234</td>
+						<td>12</td>
+						<td>团体</td>
+						<td>李永亮</td>
+						<td>四大天王</td>
+						<td>音乐</td>
+						<td>歌唱比赛</td>
+						<td>
+							<a class="ChildInfo"  href="javascript:;" title='查看详细信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe7a0;</i>
+							</a>
+							<a href="javascript:;" title='删除信息' style='text-decoration:none'>
+									<i class='layui-icon' style='font-size:23px;'>&#xe640;</i>
+							</a>
+							<a href="javascript:;" title='未审核' style='text-decoration:none'>
+									<i class='layui-icon red' style='font-size:23px;'>&#x1006;</i>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!--分页工具//-->
+		<div id='fenye'></div>
+</body>
+
+
+<script>
+layui.use('form', function(){
+var form = layui.form;
+		//监听提交
+		form.on('select(select1)', function(data){
+		  console.log(data.value); //得到被选中的值
+			let a = data.value;
+			if(a == 1){//团体
+				$('.groupinfo').show();
+				$('.moreinfo').hide();
+				showMask();
+			}
+			else if(a==2){
+				$('.groupinfo').hide();
+				$('.moreinfo').show();
+				showMask();
+			}
+		});
+});
+//实例化一个分页工具
+layui.use('laypage', function(){
+  var laypage = layui.laypage;
+
+  //执行一个laypage实例
+  laypage.render({
+    elem: 'fenye' //注意，这里的 test1 是 ID，不用加 # 号
+    ,count: 50 //数据总数，从服务端得到
+  });
+});
+
+	$(function(){
+		$('.ChildInfo').click(function(){
+			//获取基本信息
+			var olayid = $(this).attr('class');
+			var title = $(this).attr('title');
+			var ourl = $(this).attr('name');
+			//增加一个tab页
+			layui.use('layer', function(){
+  			var layer = layui.layer;
+				layer.open({
+  				type:2,
+					title :title,
+  				content: ['childinfo.html','no'] ,
+					//这里content是一个普通的String
+					area: ['50%','5rem']
+					});
+				});
+			});
+			//默认是个人
+		});
+
+		//实现2妙的遮罩
+		function showMask(){
+			$('.mask').show();
+			setTimeout(function(){
+				$('.mask').hide();
+			},300);
+		}
+</script>
+</html>

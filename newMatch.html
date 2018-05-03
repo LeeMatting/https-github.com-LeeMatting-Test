@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="layui/layui.js"></script>
+    <style media="screen">
+      #form3{
+        width:75%;
+        margin:0 auto;
+        overflow: auto;
+      }
+      #switch{
+        margin-top:-31px;
+        margin-left: 97px;
+      }
+
+    </style>
+  </head>
+  <body style='margin-top:10px;'>
+    <div id="form3" class='layui-form' >
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛名称</label>
+        <div class="layui-input-block">
+          <input type="text" class='layui-input' name="" value="" placeholder="请输入比赛名称">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛形式</label>
+        <div class="layui-input-block">
+          <input type="radio" class='layui-input' name="1" value="1" title='团队' checked='checked'>
+          <input type="radio" class='layui-input' name="1" value="2" title='个人'>
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label'>比赛类型</label>
+        <div class="layui-input-block">
+          <select name="type">
+            <option value="">请选择比赛类型</option>
+            <option value="1">小主持</option>
+            <option value="2">歌唱</option>
+            <option value="3">音乐</option>
+            <option value="4">舞蹈</option>
+          </select>
+        </div>
+      </div>
+
+      <div class='layui-form-item'>
+        <label class='layui-form-label'>举办地点</label>
+        <div class="layui-input-block">
+          <input type='text' value='' class='layui-input' placeholder="请输入举办地点">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label' style='width:120px;margin-left:-40px;'>开始报名时间</label>
+        <div class='layui-input-block'>
+          <input type="text" id='date1' class='layui-input ' name="data" value="" placeholder="请开始报名选择时间">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label' style='width:120px;margin-left:-40px;'>截至报名时间</label>
+        <div class='layui-input-block'>
+          <input type="text" id='date2' class='layui-input' name="data" value="" placeholder="请截至选择时间">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label' style='width:120px;margin-left:-40px;'>初赛开始时间</label>
+        <div class='layui-input-block'>
+          <input type="text" id='date3' class='layui-input' name="data" value="" placeholder="请选择初赛开始时间">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label' style='width:120px;margin-left:-40px;'>半决赛开始时间</label>
+        <div class='layui-input-block'>
+          <input type="text" id='date4' class='layui-input ' name="data" value="" placeholder="请选择半决赛开始时间">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class='layui-form-label' style='width:120px;margin-left:-40px;'>决赛开始时间</label>
+        <div class='layui-input-block'>
+          <input type="text" id='date5' class='layui-input ' name="data" value="" placeholder="请选择决赛开始时间">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+          <lable class='layui-form-label'>状态</label>
+            <div class='layui-input-block' id='switch'>
+              <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启动|禁用">
+            </div>
+      </div>
+    </div>
+
+    <center class='layui-btn-container' style='margin-bottom:20px;'>
+      <button id='Cancel' type="button" class='layui-btn layui-btn-danger' name="button">取消</button>
+      <button id='Comfirm' type="button" class='layui-btn' name="button">确定</button>
+    </center>
+  </body>
+  <script type="text/javascript">
+  layui.use('form', function(){
+    var form = layui.form;
+
+  });
+
+  $('input[name="data"]').mouseover(function(){
+    var oid = $(this).attr('id');
+    //实例化一个日期
+    layui.use('laydate', function(){
+    var laydate = layui.laydate;
+    //执行一个laydate实例
+      laydate.render({
+        elem : '#'+oid+''//指定元素
+      });
+
+    });
+
+  })
+
+  </script>
+</html>
