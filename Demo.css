@@ -1,0 +1,27 @@
+#img1{
+	width:200px;
+	height:500px;
+	margin: 0 auto;
+	background-image:url(img/bag.png);
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 20px;
+}
+.change{
+	background-image:url(img/bag-burst.png);
+}
+#porje{
+	width:200px;
+	margin: 0 auto;
+	border:2px solid #000;
+}
+#porje>div{
+	height:20px;
+	background: #ff0000;
+}
+#btn-group{
+	width:200px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
