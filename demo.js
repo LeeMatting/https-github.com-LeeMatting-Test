@@ -11,6 +11,11 @@ new Vue({
 			if(this.width <= 0){
 				this.end = true;
 			}
+		},
+		restart:function(){
+			this.width = 100;
+			this.end = false;
+			$('#porje').find('div').animate({'width':this.width+'%'},500)
 		}
 	}
 })
