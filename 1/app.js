@@ -1,6 +1,6 @@
 //实例化一个Vue对象
 new Vue({
-	el:'#one',
+	el:'#one1',
 	data:{
 		name:'阿亮',//key和value
 		job:'web开发',
