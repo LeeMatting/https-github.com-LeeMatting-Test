@@ -1,15 +1,15 @@
 <template>
-  <div class="hello">
-
-  </div>
+	<footer>
+		<h1>{{msg}}</h1>
+	</footer>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'app-footer',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Thank you!'
     }
   }
 }
@@ -17,5 +17,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+footer{
+	background: #222;
+	padding:20px 0;
+}
+footer>h1{
+	color:lightgreen;
+}
 </style>
