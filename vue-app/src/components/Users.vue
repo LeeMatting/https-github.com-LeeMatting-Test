@@ -1,7 +1,7 @@
 <template>
   <div class="users">
     <ul>
-      <li v-for='user in users' @click='user.show=!user.show'>
+      <li v-for='user in zidingyi' @click='user.show=!user.show'>
         <h2>{{user.name}}</h2>
         <h3 v-show='user.show'>{{user.posn}}</h3>
       </li>
@@ -12,14 +12,11 @@
 <script>
 export default {
   name: 'users',
+  //接受父组件传来的值，然后最好和指令中的名字一致，不然会炸
+  props:["zidingyi"],
   data () {
     return {
-      users:[
-        {name:'ads',posn:'123',show:false},
-        {name:'ads',posn:'123',show:false},
-        {name:'ads',posn:'123',show:false},
-        {name:'ads',posn:'123',show:false}
-      ]
+
     }
   }
 }

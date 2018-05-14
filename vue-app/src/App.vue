@@ -3,7 +3,7 @@
   <div id="app">
     <!-- <h1>{{title}}</h1> -->
     <app-header></app-header>
-    <users></users>
+    <users v-bind:zidingyi="users"></users>
     <app-footer></app-footer>
   </div>
 </template>
@@ -19,7 +19,14 @@ export default {
   name: 'App',
   data:function(){
     return {
-      title:'第一个Vue脚手架项目'
+      title:'第一个Vue脚手架项目',
+      //假设很多地方都用到这个数组,给users传值
+      users:[
+        {name:'ads',posn:'123',show:false},
+        {name:'ads',posn:'123',show:false},
+        {name:'ads',posn:'123',show:false},
+        {name:'ads',posn:'123',show:false}
+      ]
     }
   },
   components:{
