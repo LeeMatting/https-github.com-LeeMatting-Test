@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>ICM3D综联数码|移动端3D互动应用</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link href="https://cdn.bootcss.com/Swiper/4.2.5/css/swiper.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src='index.js'></script>
 	
 </head>
@@ -30,7 +31,7 @@
 		</div>
 	</div>
 	<!--图片轮播去//-->
-	<div style='padding-top:100px'>
+	<div style='padding-top:100px;'>
 		<div class="swiper-container">
     		<div class="swiper-wrapper">
         		<div class="swiper-slide"><img src="img/banner1.jpg"></div>
@@ -38,15 +39,78 @@
     		</div>
     		<!-- 如果需要分页器 -->
     		<div class="swiper-pagination"></div>
-    
-    		<!-- 如果需要导航按钮 -->
-    		<div class="swiper-button-prev"></div>
-    		<div class="swiper-button-next"></div>
-    
-    		<!-- 如果需要滚动条 -->
-    		<div class="swiper-scrollbar"></div>
 		</div>
 	</div>
+	<!--导航中部区域//-->
+	<div class='mid-area'>
+		<p>3D+H5互动页</p>
+		<p class='middle'>{{title1}}</p>
+		<p class='middle'>{{title2}}</p>
+		<div class='mid-box'>
+			<div>
+				<img src="img/1.png">
+				<h3>轻·使用</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+			<div>
+				<img src="img/2.png">
+				<h3>真·3D</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+			<div>
+				<img src="img/3.png">
+				<h3>酷·体验</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+			<div>
+				<img src="img/4.png">
+				<h3>精·亮点</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+			<div>
+				<img src="img/5.png">
+				<h3>多·互动</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+			<div>
+				<img src="img/6.png">
+				<h3>快·传播</h3>
+				<p style='margin-top: 20px'>微信或浏览器一点即开</p>
+				<p>无需下载APP</p>
+			</div>
+		</div>
+	</div>
+
+	<!--应用场景//-->
+	<div></div>
+	<!-- 站点底部 -->
+	<footer>
+		<div class='container' id='footer'>
+			<div class='left'style='margin-top: 45px;'>
+				<h3>联系我们 Contact Us：</h3>
+				<p>Add1:{{Add1}}</p>
+				<p>{{Add2}}</p>
+				<p>Tel:{{tel}}</p>
+				<p>Mail:{{mail}}</p>
+			</div>
+			<div class='right'>
+				<div class='img1'>
+					<p>加入我们</p>
+				</div>
+				<div class='img2'>
+					<p>关注微信公众号</p>
+						<div class='qc'>
+						<img src="img/qrcode.png" style='width:145px'>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<script src="https://cdn.bootcss.com/Swiper/4.2.6/js/swiper.js"></script>
 </body>
 </html>
