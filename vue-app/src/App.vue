@@ -2,9 +2,10 @@
 <template>
   <div id="app">
     <!-- <h1>{{title}}</h1> -->
-    <app-header></app-header>
+    <app-header v-bind:title='title'></app-header>
     <users v-bind:zidingyi="users"></users>
-    <app-footer></app-footer>
+    <users v-bind:zidingyi="users"></users>
+    <app-footer v-bind:title='title'></app-footer>
   </div>
 </template>
 
@@ -26,7 +27,8 @@ export default {
         {name:'ads',posn:'123',show:false},
         {name:'ads',posn:'123',show:false},
         {name:'ads',posn:'123',show:false}
-      ]
+      ],
+      title:'hahaha'
     }
   },
   components:{

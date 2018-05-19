@@ -1,16 +1,22 @@
 <template>
-	<footer>
-		<h1>{{msg}}</h1>
+	<footer @click='change'>
+		<h1>{{msg}} {{title}}</h1>
 	</footer>
 </template>
 
 <script>
 export default {
   name: 'app-footer',
+  props:['title'],
   data () {
     return {
       msg: 'Thank you!'
     }
+  },
+  methods:{
+  	change:function(){
+  		this.title='123'
+  	}
   }
 }
 </script>

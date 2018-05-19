@@ -6,8 +6,16 @@
         <h3 v-show='user.show'>{{user.posn}}</h3>
       </li>
     </ul>
+    <button @click='deleltethis'>删除</button>
   </div>
 </template>
+
+<!-- 
+
+    传值：字符，数字，布尔值 都是传值
+    传引用：数组 对象
+
+ -->
 
 <script>
 export default {
@@ -17,6 +25,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods:{
+    deleltethis:function(){
+      this.zidingyi.pop();//因为传过来的引用，指向同一个快，删除了一个，对其他插件用了这个引用的东西有影响
     }
   }
 }
