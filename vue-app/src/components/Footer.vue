@@ -15,8 +15,12 @@ export default {
   },
   methods:{
   	change:function(){
-  		this.title='123'
+  		//this.title='123'
+  		this.$emit('changFoot','子组件像父组件传值')
   	}
+  },
+  beforecreate:function(){
+  	alert('Vue实例已经创建');
   }
 }
 </script>

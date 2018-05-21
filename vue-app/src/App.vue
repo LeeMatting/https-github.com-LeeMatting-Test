@@ -5,7 +5,7 @@
     <app-header v-bind:title='title'></app-header>
     <users v-bind:zidingyi="users"></users>
     <users v-bind:zidingyi="users"></users>
-    <app-footer v-bind:title='title'></app-footer>
+    <app-footer v-on:changFoot='change' v-bind:title='title'></app-footer>
   </div>
 </template>
 
@@ -29,6 +29,11 @@ export default {
         {name:'ads',posn:'123',show:false}
       ],
       title:'hahaha'
+    }
+  },
+  methods:{
+    change:function(a){
+        this.title=a;//接受子组件传过来的值
     }
   },
   components:{
