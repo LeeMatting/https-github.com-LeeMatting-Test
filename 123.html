@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+	<style type="text/css">
+		body{
+			width:100%;
+		}
+		.container{
+			width:80%;
+			margin: 0 auto;
+		}
+		#pic{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class='container'>
+		<ul id='pic'>
+			<li><img src="1.jpg"></li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+			<li><img src="4.jpg"></li>
+		</ul>
+		<!--图片轮播区域//-->
+		<div id='pic1'></div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			var timer;
+			//第一张图片
+			let src = $('#pic').find('img:eq(0)').attr('src');
+			$('#pic1').append($('<img src="'+src+'">'));
+			//切换图片
+			function move(){
+				//拿到当前图片的索引
+				let picArray = new Array;
+				let length1 = $('#pic').find('li').find('img')
+				for(let i = 0 ; i < length1.length ; i++){
+					picArray.push($(length1[i]).attr('src'));
+				}
+				let a = $('#pic1').find('img').attr('src');
+				let index = picArray.indexOf(a); 
+					console.log(index);
+					if(index==picArray.length-1){
+						$('#pic1').find('img').fadeIn();
+						$('#pic1').find('img').fadeOut();
+						$('#pic1').find('img').attr('src',src);		
+					}//到了最后一张，回到第一张
+					else{
+						let nextSrc = picArray[index+1];
+						$('#pic1').find('img').fadeIn();
+						$('#pic1').find('img').fadeOut();
+						$('#pic1').find('img').attr('src',nextSrc);		
+					}
+			};
+
+			timer = setInterval(function(){
+				move();
+			},1000);
+			$('#pic1').hover(function(){
+				clearInterval(timer);
+			},function(){
+				timer = setInterval(function(){
+					move();
+				},1000)
+			})
+		})
+	</script>
+</body>
+</html>
