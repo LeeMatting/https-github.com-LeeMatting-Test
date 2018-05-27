@@ -1,9 +1,10 @@
 <template>
   <div class="users">
     <ul>
-      <li v-for='user in zidingyi' @click='user.show=!user.show'>
+      <li v-for='user in zidingyi'>
         <h2>{{user.name}}</h2>
-        <h3 v-show='user.show'>{{user.posn}}</h3>
+        <h3>{{user.email}}</h3>
+        <h3>{{user.phone}}</h3>
       </li>
     </ul>
     <button @click='deleltethis'>删除</button>
