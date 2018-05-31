@@ -71,4 +71,11 @@ $(function(){
    			$('.qc').hide();
    		});
    });
+
+    $('.showpic').find('div:not(:last-child)').hover(function(){
+      $(this).addClass('shadow');
+    },function(){
+      $(this).removeClass('shadow');
+    })
+
 })
