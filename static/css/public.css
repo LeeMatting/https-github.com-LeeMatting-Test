@@ -110,7 +110,7 @@ main{
 	overflow: hidden;
 
 }
-main:before {
+/*main:before {
     content: '';
     height: 100%;
     position: fixed;
@@ -119,7 +119,7 @@ main:before {
     width: 12%;
     background: #282E45;
     z-index: -1;
-}
+}*/
 main>aside{
 	width: 12%;
 }

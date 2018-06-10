@@ -18,8 +18,8 @@
 
 			<h2 class="sub-agileits-w3layouts" style="">用户登录</h2>
 			<form>
-					<input type="text" name="user" placeholder="请填写用户名" required="" />
-					<input type="password" name="Password" placeholder="请填写密码" required="" />
+					<input type="text" name="user" v-model='name' placeholder="请填写用户名" required="" />
+					<input type="password" name="Password" v-model='password' placeholder="请填写密码" required="" />
 					<a href="#" class="forgot-w3layouts">忘记密码 ?</a>
 				<div class="submit-w3l">
 					<input type="submit" value="登录" @click='jump'>
@@ -35,11 +35,13 @@ export default {
   name: 'login',
   data () {
     return {
-      
+      name:'',
+      password:''
     }
   },
   methods:{
   	jump:function(){
+  		console.log(this.name+'-----'+this.password);
   		this.$router.push({path:'/index'})
   	}
   }
